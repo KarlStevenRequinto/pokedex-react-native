@@ -11,14 +11,12 @@ export interface HomeScreenProps
 
 export interface State {
   currentUrl: string | null
-  isEndReached: boolean
   pokemonList: PokemonDetails[]
 }
 
 export default class HomeScreen extends Component<HomeScreenProps, State> {
   state: State = {
     currentUrl: null,
-    isEndReached: false,
     pokemonList: [],
   }
 
@@ -41,14 +39,14 @@ export default class HomeScreen extends Component<HomeScreenProps, State> {
   }
 
   renderItem = ({ item }: { item: any }) => {
-    const urlParts = item.url.split("/")
-    const pokemonId = urlParts[urlParts.length - 2]
     return (
       <PokemonItem
-        onPress={() => this.navigateToDetailScreen(pokemonId)}
+        onPress={() => this.navigateToDetailScreen(item.id)}
         pokemonName={item.name}
         pokemonTypes={item.types}
-        pokemonId={pokemonId}></PokemonItem>
+        pokemonId={item.id}
+        pokemonImg={item.defaultImage}>
+      </PokemonItem>
     )
   }
 

@@ -6,25 +6,26 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  GestureResponderEvent,
+  Image,
 } from "react-native"
 
 interface PokemonItemProps {
   onPress: ()=>void,
   pokemonName: string,
   pokemonTypes: PokemonDetails["types"],
-  pokemonId:string
+  pokemonId:string,
+  pokemonImg:string
 }
 
 class PokemonItem extends Component<PokemonItemProps> {
   render() {
-    const { onPress, pokemonName,pokemonTypes,pokemonId  } = this.props;
+    const { onPress, pokemonName,pokemonTypes,pokemonId,pokemonImg  } = this.props;
     return (
       <TouchableOpacity style={styles.container} onPress={onPress}>
         <Text>{pokemonId}</Text>
         <Text>{pokemonName}</Text>
         <View style={styles.imgContainer}>
-          <Text>Pokemon Img</Text>
+          <Image source={{ uri: pokemonImg }} style={styles.pokemonImage} />
         </View>
         <View>
           {pokemonTypes.map((type) => (
@@ -56,6 +57,11 @@ const styles = StyleSheet.create({
     padding: 10,
     height: "100%",
     width: 120,
+  },
+  pokemonImage: {
+    width: 100,
+    height: 100,
+    resizeMode: 'contain', 
   },
 })
 
