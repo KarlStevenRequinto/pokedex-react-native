@@ -1,0 +1,89 @@
+import React, { Component } from "react"
+import { View, StyleSheet, FlatList } from "react-native"
+import { NativeStackScreenProps } from "@react-navigation/native-stack"
+import { Pages } from "../types/Navigation"
+import { Pokemon, PokemonDetails } from "../types/Pokemon"
+import PokemonItem from "../components/PokemonItem"
+import { getPokemonList } from "../api"
+
+export interface HomeScreenProps
+  extends NativeStackScreenProps<Pages, "HomeScreen"> {}
+
+export interface State {
+  currentUrl: string | null
+  isEndReached: boolean
+  pokemonList: PokemonDetails[]
+}
+
+export default class HomeScreen extends Component<HomeScreenProps, State> {
+  state: State = {
+    currentUrl: null,
+    isEndReached: false,
+    pokemonList: [],
+  }
+
+  componentDidMount() {
+    this.loadPokemonList()
+  }
+
+  loadPokemonList = async () => {
+    try {
+      const data = await getPokemonList()
+      // console.log("Fetched Pokemon List:", data);
+      this.setState({ pokemonList: data })
+    } catch (error) {
+      console.error("Error loading Pokémon list:", error)
+    }
+  }
+
+  navigateToDetailScreen = (pokemonId: string) => {
+    this.props.navigation.navigate("DetailScreen", { pokemonId })
+  }
+
+  renderItem = ({ item }: { item: any }) => {
+    const urlParts = item.url.split("/")
+    const pokemonId = urlParts[urlParts.length - 2]
+    return (
+      <PokemonItem
+        onPress={() => this.navigateToDetailScreen(pokemonId)}
+        pokemonName={item.name}
+        pokemonTypes={item.types}
+        pokemonId={pokemonId}></PokemonItem>
+    )
+  }
+
+  render() {
+    const { pokemonList } = this.state
+    return (
+      <View style={styles.container}>
+        <FlatList
+          data={pokemonList}
+          renderItem={this.renderItem}
+          keyExtractor={(item) => item.name}
+          style={styles.flatListContainer}
+        />
+      </View>
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 80,
+  },
+  text: {
+    fontSize: 20,
+  },
+  title: {
+    fontSize: 16,
+    color: "gray",
+  },
+  flatListContainer: {
+    flex: 1,
+    width: "100%",
+    backgroundColor: "red",
+  },
+})
