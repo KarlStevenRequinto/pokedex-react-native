@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
 import { pokemonColors } from "../styles/colors"
+import { BugSvg } from "./svg/BugSvg";
+import { GrassSvg } from "./svg/GrassSvg";
 interface PokemonItemProps {
   onPress: () => void
   pokemonName: string
@@ -53,6 +55,7 @@ class PokemonItem extends Component<PokemonItemProps> {
                   { backgroundColor: backgroundColor },
                 ]}
                 key={index}>
+                  <GrassSvg/>
                 <Text>{capitalizeFirstLetter(item.type.name)}</Text>
               </View>
             )
@@ -105,7 +108,8 @@ const styles = StyleSheet.create({
   typeContainer: {
     padding:4,
     marginHorizontal:4,
-    borderRadius:18
+    borderRadius:18,
+    flexDirection:"row"
   },
   pokemonTypesContainer:{
     position:"absolute",
