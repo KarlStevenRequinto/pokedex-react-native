@@ -3,7 +3,7 @@ import { View, StyleSheet, FlatList } from "react-native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { Pages } from "../types/Navigation"
 import { Pokemon, PokemonDetails } from "../types/Pokemon"
-import PokemonItem from "../components/PokemonItem"
+import PokemonItem from "../components/common/PokemonItem"
 import { getPokemonList } from "../api"
 
 export interface HomeScreenProps
@@ -27,7 +27,6 @@ export default class HomeScreen extends Component<HomeScreenProps, State> {
   loadPokemonList = async () => {
     try {
       const data = await getPokemonList()
-      // console.log("Fetched Pokemon List:", data);
       this.setState({ pokemonList: data })
     } catch (error) {
       console.error("Error loading Pokémon list:", error)
