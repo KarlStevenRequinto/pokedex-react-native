@@ -3,7 +3,7 @@ import { SvgProps } from "../../types/Pokemon"
 import { Svg, Path, Defs, LinearGradient, Stop } from "react-native-svg"
 
 const NormalSvg: React.FC<SvgProps> = ({ width, height, fill,isGradient }) => {
-  console.log("fill svg",fill)
+  // console.log("fill svg",fill)
   return (
     <Svg width={width} height={height} viewBox="0 0 128 127" fill="none">
       <Defs>

@@ -33,14 +33,14 @@ export default class HomeScreen extends Component<HomeScreenProps, State> {
     }
   }
 
-  navigateToDetailScreen = (pokemonId: string) => {
-    this.props.navigation.navigate("DetailScreen", { pokemonId })
+  navigateToDetailScreen = (pokemon:PokemonDetails) => {
+    this.props.navigation.navigate("DetailScreen", { pokemon })
   }
 
   renderItem = ({ item }: { item: any }) => {
     return (
       <PokemonItem
-        onPress={() => this.navigateToDetailScreen(item.id)}
+        onPress={() => this.navigateToDetailScreen(item)}
         pokemonName={item.name}
         pokemonTypes={item.types}
         pokemonId={item.id}

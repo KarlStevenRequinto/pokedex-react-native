@@ -1,7 +1,6 @@
-import { Pokemon } from "./Pokemon"
-
+import { PokemonDetails } from "./Pokemon"
 export type Pages = {
   HomeScreen: undefined
-  DetailScreen: { pokemonId: string }
+  DetailScreen: { pokemon: PokemonDetails }
 }
 

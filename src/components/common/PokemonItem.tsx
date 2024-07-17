@@ -35,11 +35,9 @@ class PokemonItem extends Component<PokemonItemProps> {
       pokemonTypes.length > 0
         ? SvgComponents[pokemonTypes[0].type.name as keyof typeof SvgComponents]
         : null
-
-    console.log("TypeIconBackground:", TypeIconBackground);
-    console.log("pokemonTypes:", pokemonTypes);
-    console.log("SvgComponents:", SvgComponents);
-
+    // console.log("TypeIconBackground:", TypeIconBackground);
+    // console.log("pokemonTypes:", pokemonTypes);
+    // console.log("SvgComponents:", SvgComponents);
     return (
       <TouchableOpacity style={styles.container} onPress={onPress}>
         <Text style={styles.pokemonNumber}>
