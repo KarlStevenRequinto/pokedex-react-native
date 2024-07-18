@@ -2,42 +2,20 @@ import React, { Component } from "react"
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
 import { pokemonColors } from "../../styles/colors"
 import SvgComponents from "../svg"
-
-interface PokemonItemProps {
-  onPress: () => void
-  pokemonName: string
-  pokemonTypes: { slot: number; type: { name: string } }[]
-  pokemonId: string
-  pokemonImg: string
-}
-type PokemonColorKeys = keyof typeof pokemonColors
-
+import { PokemonItemProps } from "../../types/Pokemon"
+import { getColor } from "../../utils"
+import { capitalizeFirstLetter } from "../../utils"
 class PokemonItem extends Component<PokemonItemProps> {
-  getColorType = () => {
-    const { pokemonTypes } = this.props
-    if (pokemonTypes.length > 0) {
-      const firstType = pokemonTypes[0].type.name as PokemonColorKeys
-      return pokemonColors[firstType] || pokemonColors.default_dark
-    }
-    return pokemonColors.default_dark
-  }
-
   render() {
     const { onPress, pokemonName, pokemonTypes, pokemonId, pokemonImg } =
       this.props
-    const colorType = this.getColorType()
-
-    const capitalizeFirstLetter = (string: string) => {
-      return string.charAt(0).toUpperCase() + string.slice(1)
-    }
+    const colorType = getColor(pokemonTypes)
 
     const TypeIconBackground =
       pokemonTypes.length > 0
         ? SvgComponents[pokemonTypes[0].type.name as keyof typeof SvgComponents]
         : null
-    // console.log("TypeIconBackground:", TypeIconBackground);
-    // console.log("pokemonTypes:", pokemonTypes);
-    // console.log("SvgComponents:", SvgComponents);
+
     return (
       <TouchableOpacity style={styles.container} onPress={onPress}>
         <Text style={styles.pokemonNumber}>
@@ -111,6 +89,8 @@ const styles = StyleSheet.create({
     borderRadius: 22,
     marginVertical: 4,
     overflow: "hidden",
+    borderWidth:1,
+    borderColor:"#65676b"
   },
   imgContainer: {
     position: "absolute",

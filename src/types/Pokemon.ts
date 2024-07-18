@@ -10,17 +10,25 @@ export interface PokemonDetails {
   defaultImage: string
   height: number
   weight: number
-  speciesUrl:string
+  artWorkImage: string
 }
 export interface PokemonSpecies{
   happiness: number
-  captureRate: number
-  evolutionUrl: string
   habitat:string
+  description:string
 }
 export interface SvgProps {
   width: number
   height: number
   fill: string
   isGradient: boolean
+}
+
+
+export interface PokemonItemProps {
+  onPress: () => void
+  pokemonName: string
+  pokemonTypes: { slot: number; type: { name: string } }[]
+  pokemonId: string
+  pokemonImg: string
 }

@@ -33,7 +33,7 @@ export default class HomeScreen extends Component<HomeScreenProps, State> {
     }
   }
 
-  navigateToDetailScreen = (pokemon:PokemonDetails) => {
+  navigateToDetailScreen = (pokemon: PokemonDetails) => {
     this.props.navigation.navigate("DetailScreen", { pokemon })
   }
 
@@ -44,8 +44,7 @@ export default class HomeScreen extends Component<HomeScreenProps, State> {
         pokemonName={item.name}
         pokemonTypes={item.types}
         pokemonId={item.id}
-        pokemonImg={item.defaultImage}>
-      </PokemonItem>
+        pokemonImg={item.defaultImage}></PokemonItem>
     )
   }
 
@@ -69,7 +68,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    // paddingHorizontal: 80,
+
   },
   text: {
     fontSize: 20,
@@ -81,6 +80,6 @@ const styles = StyleSheet.create({
   flatListContainer: {
     flex: 1,
     width: "100%",
-    backgroundColor: "red",
+    backgroundColor:"#f0f2f5"
   },
 })
