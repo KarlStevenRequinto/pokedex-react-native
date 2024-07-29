@@ -12,7 +12,7 @@ export default class StatsComponent extends Component<Props> {
     const { title, value, unit } = this.props
 
     return (
-      <View style={styles.statsContainer}>
+      <View>
         <Text style={styles.statsTitle}>{title.toUpperCase()}</Text>
         <View style={styles.textComponentContainer}>
           <Text style={styles.textComponent}>{value} </Text>
@@ -24,9 +24,6 @@ export default class StatsComponent extends Component<Props> {
 }
 
 const styles = StyleSheet.create({
-  statsContainer: {
-
-  },
   statsTitle: {
     fontSize: 16,
     color: "#65676b",

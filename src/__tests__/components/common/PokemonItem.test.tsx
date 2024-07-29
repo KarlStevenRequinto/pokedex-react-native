@@ -3,10 +3,10 @@ import renderer from "react-test-renderer"
 import PokemonItem from "../../../components/common/PokemonItem"
 import { StyleSheet } from 'react-native';
 
-jest.mock("../../utils", () => ({
+jest.mock("../../../utils", () => ({
   capitalizeFirstLetter: jest.fn().mockImplementation((text: string) => text),
   getColor: jest.fn().mockImplementation(() => "red"),
-}))
+}));
 
 const mockPokemon = {
   pokemonName: "pikachu",

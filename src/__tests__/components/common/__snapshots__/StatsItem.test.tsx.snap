@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatsComponent should render correctly with given props 1`] = `
+<div
+  className="css-view-1dbjc4n"
+>
+  <div
+    className="css-text-901oao r-color-k3kqo8 r-fontSize-ubezar r-marginVertical-1p6iasa"
+    dir="auto"
+  >
+    SPEED
+  </div>
+  <div
+    className="css-view-1dbjc4n r-alignItems-1awozwy r-backgroundColor-14lw9ot r-borderColor-8paj3c r-borderRadius-1q9bdsx r-borderWidth-rs99b7 r-flexDirection-18u37iz r-justifyContent-1777fci r-padding-edyy15 r-width-3ew84i"
+  >
+    <div
+      className="css-text-901oao r-fontSize-1i10wst r-fontWeight-vw2c0b"
+      dir="auto"
+    >
+      50
+       
+    </div>
+    <div
+      className="css-text-901oao r-fontSize-1i10wst r-fontWeight-vw2c0b"
+      dir="auto"
+    >
+      km/h
+    </div>
+  </div>
+</div>
+`;
