@@ -35,9 +35,9 @@ interface TreeNode {
 
 describe("StatsComponent", () => {
   const mockProps = {
-    title: "Speed",
+    title: "weigh",
     value: 50,
-    unit: "km/h",
+    unit: "kg",
   }
 
   it("should render correctly with given props", () => {
@@ -50,7 +50,6 @@ describe("StatsComponent", () => {
     const component = renderer.create(<StatsComponent {...mockProps} />)
     const tree = component.toTree()
 
-    // Traverse the tree to find the title element
     const titleElement = findByProps(tree, { style: styles.statsTitle })
     expect(titleElement?.children).toContain(mockProps.title.toUpperCase())
   })
@@ -73,11 +72,9 @@ describe("StatsComponent", () => {
 
     const titleElement = findByProps(tree, { style: styles.statsTitle })
 
-    // Check if titleElement and its children are defined
     if (titleElement && titleElement.children) {
       expect(titleElement.children[0]).toBe(mockProps.title.toUpperCase())
     } else {
-      // Fail the test if titleElement or its children are undefined
       throw new Error("Title element or its children are undefined")
     }
   })
@@ -98,7 +95,6 @@ describe("StatsComponent", () => {
   })
 })
 
-// Utility functions to help find elements by props
 function findByProps(tree: TreeNode | null, props: any): TreeNode | null {
   if (!tree) return null
   if (matchesProps(tree.props, props)) return tree

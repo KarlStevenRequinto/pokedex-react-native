@@ -52,9 +52,7 @@
     "setupFilesAfterEnv": [
       "<rootDir>/node_modules/jest-enzyme/lib/index.js"
     ],
-    "setupFiles": [
-      "<rootDir>/test-setup.ts"
-    ],
+    "setupFiles": ["./jest.setup.js"],
     "moduleFileExtensions": [
       "ts",
       "tsx",
