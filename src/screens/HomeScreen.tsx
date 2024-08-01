@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { View, StyleSheet, FlatList } from "react-native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { Pages } from "../types/Navigation"
-import { Pokemon, PokemonDetails } from "../types/Pokemon"
+import { PokemonDetails } from "../types/Pokemon"
 import PokemonItem from "../components/common/PokemonItem"
 import { getPokemonList } from "../api"
 
